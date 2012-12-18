@@ -4,7 +4,7 @@
 %define debug_package %nil
 
 Name: sope
-Version: 2.0.0
+Version: 2.0.3a
 %if "%scmrev" == ""
 %if "%beta" != ""
 Release: 0.%beta.1
@@ -20,7 +20,8 @@ Summary: The SOPE application server
 URL: http://sogo.nu/
 License: GPL
 Group: System/Servers
-BuildRequires: gnustep-make gnustep-base-devel gnustep-gui-devel
+BuildRequires: gnustep-make >= 2.6.2-3
+BuildRequires: gnustep-base-devel gnustep-gui-devel
 BuildRequires: gcc-objc
 
 %description
@@ -36,6 +37,13 @@ Development files for the SOPE application server
 
 Install %name-devel if you wish to develop or compile
 applications that use SOPE.
+
+%track
+prog sope = {
+	version = %{version}
+	url = http://www.sogo.nu/downloads/backend.html
+	regex = SOGo-(__VER__)\.tar\.gz
+}
 
 %prep
 %setup -q -n SOPE
