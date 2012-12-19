@@ -23,6 +23,9 @@ Group: System/Servers
 BuildRequires: gnustep-make >= 2.6.2-3
 BuildRequires: gnustep-base-devel gnustep-gui-devel
 BuildRequires: gcc-objc
+# Not strictly required, but the resulting SOPE gets more features
+# if they're there
+BuildRequires: pkgconfig(libxml-2.0) openldap-devel pkgconfig(libssl) postgresql-devel mysql-devel
 
 %description
 The SOPE application server, primarily used by SOGo
