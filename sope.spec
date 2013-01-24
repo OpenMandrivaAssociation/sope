@@ -53,10 +53,13 @@ prog sope = {
 # Not autoconf, even though it looks similar
 # Not actually %_prefix/System -- the bogus configure script translates
 # that to "GNUstep System installation"
-./configure --prefix=%_prefix/System --with-gnustep
+# --enable-debug is the default, but builds with -O0, we don't want that.
+# Aside from slowing things down, it doesn't allow _FORTIFY_SOURCE, which
+# we should really have for server related packages.
+./configure --prefix=%_prefix/System --with-gnustep --disable-debug
 
 %build
-make %?_smp_mflags
+make %?_smp_mflags CC="%__cc -fuse-ld=bfd"
 
 %install
 rm -rf $RPM_BUILD_ROOT
