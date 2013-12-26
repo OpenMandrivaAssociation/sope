@@ -4,18 +4,20 @@
 %define debug_package %nil
 
 Name: sope
-Version: 2.0.7
+Version: 2.1.1b
 %if "%scmrev" == ""
 %if "%beta" != ""
 Release: 0.%beta.1
 %else
-Release: 5
+Release: 1
 %endif
-Source: http://www.sogo.nu/files/downloads/SOGo/Sources/SOPE-%version%beta.tar.gz
+Source0: http://www.sogo.nu/files/downloads/SOGo/Sources/SOPE-%version%beta.tar.gz
 %else
 Release: 0.%scmrev.1ark
-Source: SOPE-%scmrev.tar.xz
+Source0: SOPE-%scmrev.tar.xz
 %endif
+Source100: %{name}.rpmlintrc
+Patch0: SOPE-2.1.1b-link.patch
 Summary: The SOPE application server
 URL: http://sogo.nu/
 License: GPL
@@ -50,6 +52,7 @@ prog sope = {
 
 %prep
 %setup -q -n SOPE
+%apply_patches
 # Not autoconf, even though it looks similar
 # Not actually %_prefix/System -- the bogus configure script translates
 # that to "GNUstep System installation"
