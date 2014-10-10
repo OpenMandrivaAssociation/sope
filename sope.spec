@@ -9,7 +9,7 @@ Version: 2.1.1b
 %if "%beta" != ""
 Release: 0.%beta.1
 %else
-Release: 3
+Release: 4
 %endif
 Source0: http://www.sogo.nu/files/downloads/SOGo/Sources/SOPE-%version%beta.tar.gz
 %else
@@ -62,7 +62,7 @@ prog sope = {
 ./configure --prefix=%_prefix/System --with-gnustep --disable-debug
 
 %build
-make %?_smp_mflags CC="%__cc -fuse-ld=bfd"
+make %?_smp_mflags CC="gcc -fuse-ld=bfd"
 
 %install
 rm -rf $RPM_BUILD_ROOT
