@@ -4,12 +4,12 @@
 %define debug_package %nil
 
 Name: sope
-Version: 2.1.1b
+Version: 2.2.15
 %if "%scmrev" == ""
 %if "%beta" != ""
 Release: 0.%beta.1
 %else
-Release: 7
+Release: 1
 %endif
 Source0: http://www.sogo.nu/files/downloads/SOGo/Sources/SOPE-%version%beta.tar.gz
 %else
