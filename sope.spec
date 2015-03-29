@@ -4,7 +4,7 @@
 %define debug_package %nil
 
 Name: sope
-Version: 2.2.17
+Version: 2.2.17a
 %if "%scmrev" == ""
 %if "%beta" != ""
 Release: 0.%beta.1
