@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   SOPE-2.3.0.tar.gz: b3d0de4cec980c5e9825dd2fa613d78857dfd32d
+sources:
+  SOPE-2.3.4.tar.gz: f18b84c7422a8e738122d5efd6a2f06acab1a990

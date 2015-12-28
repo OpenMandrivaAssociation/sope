@@ -2,9 +2,11 @@
 %define scmrev %nil
 # Apparently we can't create debug packages for objective-c
 %define debug_package %nil
+%define _disable_lto 1
+%define _disable_rebuild_configure 1
 
 Name: sope
-Version: 2.3.0
+Version: 2.3.4
 %if "%scmrev" == ""
 %if "%beta" != ""
 Release: 0.%beta.1
@@ -62,7 +64,7 @@ prog sope = {
 ./configure --prefix=%_prefix/System --with-gnustep --disable-debug
 
 %build
-make %?_smp_mflags CC="gcc -fuse-ld=bfd"
+make %?_smp_mflags CC="gcc -fuse-ld=bfd" messages=yes OPTFLAG='%optflags'
 
 %install
 rm -rf $RPM_BUILD_ROOT
