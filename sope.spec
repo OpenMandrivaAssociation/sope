@@ -11,7 +11,7 @@ Version: 2.3.4
 %if "%beta" != ""
 Release: 0.%beta.1
 %else
-Release: 3
+Release: 4
 %endif
 Source0: http://www.sogo.nu/files/downloads/SOGo/Sources/SOPE-%version%beta.tar.gz
 %else
