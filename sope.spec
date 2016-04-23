@@ -6,12 +6,12 @@
 %define _disable_rebuild_configure 1
 
 Name: sope
-Version: 2.3.4
+Version: 3.0.2
 %if "%scmrev" == ""
 %if "%beta" != ""
 Release: 0.%beta.1
 %else
-Release: 4
+Release: 1
 %endif
 Source0: http://www.sogo.nu/files/downloads/SOGo/Sources/SOPE-%version%beta.tar.gz
 %else
@@ -61,7 +61,7 @@ prog sope = {
 # --enable-debug is the default, but builds with -O0, we don't want that.
 # Aside from slowing things down, it doesn't allow _FORTIFY_SOURCE, which
 # we should really have for server related packages.
-./configure --prefix=%_prefix/System --with-gnustep --disable-debug
+./configure --prefix=%_prefix --disable-debug
 
 %build
 make %?_smp_mflags CC="gcc -fuse-ld=bfd" messages=yes OPTFLAG='%optflags'
@@ -72,13 +72,13 @@ make %?_smp_mflags install DESTDIR="$RPM_BUILD_ROOT" GNUSTEP_INSTALLATION_DOMAIN
 
 %files
 %_libdir/*.so*
-%_libdir/GNUstep/*-4.9
-%_libdir/GNUstep/Libraries/Resources/NGObjWeb
-%_datadir/GNUstep/Makefiles/*.make
-%_datadir/GNUstep/Makefiles/Additional/*.make
+%_libdir/sope-4.9
+%_datadir/sope-4.9
 %_bindir/wod
 %_bindir/load-EOAdaptor
 %_bindir/connect-EOAdaptor
 
 %files devel
 %_includedir/*
+%_datadir/GNUstep/Makefiles/*.make
+%_datadir/GNUstep/Makefiles/*/*.make
