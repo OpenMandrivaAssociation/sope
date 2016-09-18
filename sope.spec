@@ -55,6 +55,10 @@ prog sope = {
 %prep
 %setup -q -n SOPE
 %apply_patches
+
+# For aarch64
+cp -f %{_datadir}/libtool/config/config.{guess,sub} sope-core/NGStreams/
+
 # Not autoconf, even though it looks similar
 # Not actually %_prefix/System -- the bogus configure script translates
 # that to "GNUstep System installation"
