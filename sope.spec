@@ -66,7 +66,7 @@ sed -i 's!sparc64!aarch64!g' configure
 # --enable-debug is the default, but builds with -O0, we don't want that.
 # Aside from slowing things down, it doesn't allow _FORTIFY_SOURCE, which
 # we should really have for server related packages.
-./configure --prefix=%_prefix --disable-debug --libdir=%{_libdir}
+./configure --prefix=%_prefix --disable-debug
 
 %build
 make %?_smp_mflags CC="gcc -fuse-ld=bfd" messages=yes OPTFLAG='%optflags'
