@@ -55,17 +55,18 @@ prog sope = {
 %prep
 %setup -q -n SOPE
 %apply_patches
-
 # For aarch64
 cp -f %{_datadir}/libtool/config/config.{guess,sub} sope-core/NGStreams/
-
+# just replace sparc64 with aarch64
+# to fix _libdir path
+sed -i 's!sparc64!aarch64!g' configure
 # Not autoconf, even though it looks similar
 # Not actually %_prefix/System -- the bogus configure script translates
 # that to "GNUstep System installation"
 # --enable-debug is the default, but builds with -O0, we don't want that.
 # Aside from slowing things down, it doesn't allow _FORTIFY_SOURCE, which
 # we should really have for server related packages.
-./configure --prefix=%_prefix --disable-debug
+./configure --prefix=%_prefix --disable-debug --libdir=%{_libdir}
 
 %build
 make %?_smp_mflags CC="gcc -fuse-ld=bfd" messages=yes OPTFLAG='%optflags'
