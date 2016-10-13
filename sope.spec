@@ -30,6 +30,8 @@ BuildRequires: gcc-objc
 # Not strictly required, but the resulting SOPE gets more features
 # if they're there
 BuildRequires: pkgconfig(libxml-2.0) openldap-devel pkgconfig(libssl) postgresql-devel mysql-devel
+# For config.guess
+BuildRequires: libtool-base
 
 %description
 The SOPE application server, primarily used by SOGo
@@ -60,6 +62,7 @@ cp -f %{_datadir}/libtool/config/config.{guess,sub} sope-core/NGStreams/
 # just replace sparc64 with aarch64
 # to fix _libdir path
 sed -i 's!sparc64!aarch64!g' configure
+cp -f %{_datadir}/libtool/config/config.guess sope-core/NGStreams/
 # Not autoconf, even though it looks similar
 # Not actually %_prefix/System -- the bogus configure script translates
 # that to "GNUstep System installation"
