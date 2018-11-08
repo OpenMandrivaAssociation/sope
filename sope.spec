@@ -6,12 +6,12 @@
 %define _disable_rebuild_configure 1
 
 Name: sope
-Version: 4.0.3
+Version: 4.0.4
 %if "%scmrev" == ""
 %if "%beta" != ""
 Release: 1.%beta.1
 %else
-Release: 2
+Release: 1
 %endif
 Source0: http://www.sogo.nu/files/downloads/SOGo/Sources/SOPE-%version%beta.tar.gz
 %else
