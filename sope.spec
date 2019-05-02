@@ -9,7 +9,7 @@ Name: sope
 Version: 4.0.7
 %if "%scmrev" == ""
 %if "%beta" != ""
-Release: 1.%beta.1
+Release: 0.%beta.1
 %else
 Release: 1
 %endif
