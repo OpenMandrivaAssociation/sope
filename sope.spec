@@ -56,7 +56,7 @@ prog sope = {
 
 %prep
 %setup -q -n SOPE
-%apply_patches
+%autopatch -p1
 # For aarch64
 cp -f %{_datadir}/libtool/config/config.{guess,sub} sope-core/NGStreams/
 # just replace sparc64 with aarch64
