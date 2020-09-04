@@ -1,11 +1,12 @@
---- SOPE/sope-json/SBJson/Classes/GNUmakefile.omv~	2013-12-26 20:38:14.533734649 +0100
-+++ SOPE/sope-json/SBJson/Classes/GNUmakefile	2013-12-26 20:38:26.073734785 +0100
+diff -up SOPE/sope-json/SBJson/Classes/GNUmakefile.1~ SOPE/sope-json/SBJson/Classes/GNUmakefile
+--- SOPE/sope-json/SBJson/Classes/GNUmakefile.1~	2020-09-04 19:30:14.318649632 +0200
++++ SOPE/sope-json/SBJson/Classes/GNUmakefile	2020-09-04 19:32:17.463760347 +0200
 @@ -25,6 +25,8 @@ SBJson_OBJC_FILES = \
  	SBJsonParser.m \
  	SBJsonWriter.m
  
 +SBJson_LDFLAGS = -lobjc -lgnustep-base
 +
+ SBJson_LIBRARIES_DEPEND_UPON += $(BASE_LIBS)
+ 
  -include GNUmakefile.preamble
- include $(GNUSTEP_MAKEFILES)/library.make
- -include GNUmakefile.postamble
