@@ -6,7 +6,7 @@
 %define _disable_rebuild_configure 1
 
 Name: sope
-Version:	5.0.1
+Version:	5.1.0
 %if "%scmrev" == ""
 %if "%beta" != ""
 Release:	1
@@ -26,7 +26,7 @@ License: GPL
 Group: System/Servers
 BuildRequires: gnustep-make >= 2.6.2-3
 BuildRequires: gnustep-base-devel gnustep-gui-devel
-BuildRequires: gcc-objc
+BuildRequires: pkgconfig(libobjc)
 # Not strictly required, but the resulting SOPE gets more features
 # if they're there
 BuildRequires: pkgconfig(libxml-2.0) openldap-devel pkgconfig(libssl) postgresql-devel mysql-devel
@@ -72,11 +72,11 @@ cp -f %{_datadir}/libtool/config/config.guess sope-core/NGStreams/
 ./configure --prefix=%_prefix --disable-debug
 
 %build
-make %?_smp_mflags CC="gcc -fuse-ld=bfd" messages=yes OPTFLAG='%optflags'
+# FIXME we set ALL_LDFLAGS to "" just to avoid the combination of -r and -rdynamic
+%make_build messages=yes OPTFLAG='%optflags -Wno-error=format-security' ALL_LDFLAGS=""
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make %?_smp_mflags install DESTDIR="$RPM_BUILD_ROOT" GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
+%make_install GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 %files
 %_libdir/*.so*
