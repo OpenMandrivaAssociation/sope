@@ -6,10 +6,10 @@
 %define _disable_rebuild_configure 1
 
 Name: sope
-Version:	5.5.0
+Version:	5.7.0
 %if "%scmrev" == ""
 %if "%beta" != ""
-Release:	0.%beta.1
+Release:	1
 %else
 Release:	1
 %endif
