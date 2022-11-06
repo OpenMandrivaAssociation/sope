@@ -1,23 +1,12 @@
-%define beta %nil
-%define scmrev %nil
 # Apparently we can't create debug packages for objective-c
 %define debug_package %nil
 %define _disable_lto 1
 %define _disable_rebuild_configure 1
 
 Name: sope
-Version:	5.7.0
-%if "%scmrev" == ""
-%if "%beta" != ""
+Version:	5.7.1
 Release:	1
-%else
-Release:	1
-%endif
-Source0: https://packages.inverse.ca/SOGo/sources/SOPE-%version%beta.tar.gz
-%else
-Release:	1
-Source0: SOPE-%scmrev.tar.xz
-%endif
+Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
 Patch0: SOPE-2.1.1b-link.patch
 Summary: The SOPE application server
