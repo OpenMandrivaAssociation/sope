@@ -4,7 +4,7 @@
 %define _disable_rebuild_configure 1
 
 Name: sope
-Version:	5.7.1
+Version:	5.8.0
 Release:	1
 Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
