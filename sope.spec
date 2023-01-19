@@ -1,14 +1,19 @@
 # Apparently we can't create debug packages for objective-c
 %define debug_package %nil
-%define _disable_lto 1
+#define _disable_lto 1
 %define _disable_rebuild_configure 1
+
+# Get rid of -Werror=format-security for now
+%global Werror_cflags -Wformat
 
 Name: sope
 Version:	5.8.0
-Release:	1
+Release:	2
 Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
 Patch0: SOPE-2.1.1b-link.patch
+Patch1: sope-5.8.0-enable-sqlite.patch
+Patch2: sope-5.8.0-gnustep-1.29.patch
 Summary: The SOPE application server
 URL: http://sogo.nu/
 License: GPL
@@ -18,7 +23,7 @@ BuildRequires: gnustep-base-devel gnustep-gui-devel
 BuildRequires: pkgconfig(libobjc)
 # Not strictly required, but the resulting SOPE gets more features
 # if they're there
-BuildRequires: pkgconfig(libxml-2.0) openldap-devel pkgconfig(libssl) postgresql-devel mysql-devel
+BuildRequires: pkgconfig(libxml-2.0) openldap-devel pkgconfig(libssl) pkgconfig(libpq) pkgconfig(mariadb) pkgconfig(sqlite3)
 # For config.guess
 BuildRequires: libtool-base
 
@@ -36,16 +41,8 @@ Development files for the SOPE application server
 Install %name-devel if you wish to develop or compile
 applications that use SOPE.
 
-%track
-prog sope = {
-	version = %{version}
-	url = http://www.sogo.nu/downloads/backend.html
-	regex = SOGo-(__VER__)\.tar\.gz
-}
-
 %prep
-%setup -q -n SOPE
-%autopatch -p1
+%autosetup -p1 -n SOPE
 # For aarch64
 cp -f %{_datadir}/libtool/config/config.{guess,sub} sope-core/NGStreams/
 # just replace sparc64 with aarch64

@@ -1,0 +1,14 @@
+diff -up SOPE/configure.omv~ SOPE/configure
+--- SOPE/configure.omv~	2023-01-19 06:08:51.420013504 +0100
++++ SOPE/configure	2023-01-19 06:09:02.433408170 +0100
+@@ -550,8 +550,8 @@ EOF
+     cfgwrite "HAS_LIBRARY_pq=no"
+   fi
+ 
+-#  checkLinking "sqlite3"     optional;
+-  cfgwrite "HAS_LIBRARY_sqlite3=no"
++  checkLinking "sqlite3"     optional;
++#  cfgwrite "HAS_LIBRARY_sqlite3=no"
+ 
+   if test "x$ARG_WITH_MYSQL" = "xauto" ; then
+     checkLinking "mysqlclient"          optional;
