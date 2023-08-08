@@ -8,7 +8,7 @@
 
 Name: sope
 Version:	5.8.4
-Release:	1
+Release:	2
 Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
 Patch0: SOPE-2.1.1b-link.patch
@@ -24,7 +24,7 @@ BuildRequires: gnustep-base-devel gnustep-gui-devel
 BuildRequires: pkgconfig(libobjc)
 # Not strictly required, but the resulting SOPE gets more features
 # if they're there
-BuildRequires: pkgconfig(libxml-2.0) openldap-devel pkgconfig(libssl) pkgconfig(libpq) pkgconfig(mariadb) pkgconfig(sqlite3)
+BuildRequires: pkgconfig(libxml-2.0) pkgconfig(ldap) pkgconfig(libssl) pkgconfig(libpq) pkgconfig(mariadb) pkgconfig(sqlite3)
 # For config.guess
 BuildRequires: libtool-base
 
