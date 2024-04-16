@@ -7,13 +7,13 @@
 %global Werror_cflags -Wformat
 
 Name: sope
-Version:	5.9.1
+Version:	5.10.0
 Release:	1
 Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
 Patch0: SOPE-2.1.1b-link.patch
 Patch1: sope-5.8.0-enable-sqlite.patch
-Patch2: sope-5.8.0-gnustep-1.29.patch
+Patch2: SOPE-5.10.0-compile.patch
 Patch3: SOPE-5.8.2-clang16.patch
 Summary: The SOPE application server
 URL: http://sogo.nu/
