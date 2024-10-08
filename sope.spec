@@ -7,8 +7,8 @@
 %global Werror_cflags -Wformat
 
 Name: sope
-Version:	5.11.0
-Release:	2
+Version:	5.11.1
+Release:	1
 Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
 Patch0: SOPE-2.1.1b-link.patch
