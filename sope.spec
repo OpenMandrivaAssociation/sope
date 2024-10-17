@@ -16,7 +16,7 @@ Patch1: sope-5.8.0-enable-sqlite.patch
 Patch2: SOPE-5.10.0-compile.patch
 Patch3: SOPE-5.8.2-clang16.patch
 Summary: The SOPE application server
-URL: http://sogo.nu/
+URL: https://sogo.nu/
 License: GPL
 Group: System/Servers
 BuildRequires: gnustep-make >= 2.6.2-3
