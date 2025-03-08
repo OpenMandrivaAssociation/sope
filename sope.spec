@@ -8,7 +8,7 @@
 
 Name: sope
 Version:	5.11.2
-Release:	1
+Release:	2
 Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
 Patch0: SOPE-2.1.1b-link.patch
