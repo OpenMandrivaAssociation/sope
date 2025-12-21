@@ -19,6 +19,9 @@ Summary: The SOPE application server
 URL: https://sogo.nu/
 License: GPL
 Group: System/Servers
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	slibtool
 BuildRequires: gnustep-make >= 2.6.2-3
 BuildRequires: gnustep-base-devel gnustep-gui-devel
 BuildRequires: pkgconfig(libobjc)
