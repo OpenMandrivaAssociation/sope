@@ -7,7 +7,7 @@
 %global Werror_cflags -Wformat
 
 Name: sope
-Version:	5.12.5
+Version:	5.12.6
 Release:	1
 Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
@@ -15,6 +15,7 @@ Patch0: SOPE-2.1.1b-link.patch
 Patch1: sope-5.8.0-enable-sqlite.patch
 Patch2: SOPE-5.10.0-compile.patch
 Patch3: SOPE-5.8.2-clang16.patch
+Patch4:	SOPE-5.12.6-compile.patch
 Summary: The SOPE application server
 URL: https://sogo.nu/
 License: GPL
@@ -29,7 +30,7 @@ BuildRequires: pkgconfig(libobjc)
 # if they're there
 BuildRequires: pkgconfig(libxml-2.0) pkgconfig(ldap) pkgconfig(libssl) pkgconfig(libpq) pkgconfig(mariadb) pkgconfig(sqlite3)
 # For config.guess
-BuildRequires: libtool-base
+BuildRequires: gnu-config
 
 %description
 The SOPE application server, primarily used by SOGo
