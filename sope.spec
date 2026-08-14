@@ -7,7 +7,7 @@
 %global Werror_cflags -Wformat
 
 Name: sope
-Version:	5.12.9
+Version:	5.12.10
 Release:	1
 Source0:	https://packages.sogo.nu/sources/SOPE-%version.tar.gz
 Source100: %{name}.rpmlintrc
@@ -38,7 +38,7 @@ The SOPE application server, primarily used by SOGo
 %package devel
 Summary: Development files for the SOPE application server
 Group: Development/Other
-Requires: %name = %version-%release
+Requires: %name = %{EVRD}
 
 %description devel
 Development files for the SOPE application server
