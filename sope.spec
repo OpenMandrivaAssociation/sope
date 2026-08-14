@@ -59,9 +59,14 @@ sed -i 's!sparc64!aarch64!g' configure
 # --enable-debug is the default, but builds with -O0, we don't want that.
 # Aside from slowing things down, it doesn't allow _FORTIFY_SOURCE, which
 # we should really have for server related packages.
+# NGStreams runs a nested configure that otherwise picks up a non-working gcc.
+export CC=cc
+export CXX=c++
 ./configure --prefix=%_prefix --disable-debug
 
 %build
+export CC=cc
+export CXX=c++
 # FIXME we set ALL_LDFLAGS to "" just to avoid the combination of -r and -rdynamic
 %make_build messages=yes OPTFLAG='%optflags -Wno-error=format-security' ALL_LDFLAGS=""
 
