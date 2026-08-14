@@ -48,12 +48,11 @@ applications that use SOPE.
 
 %prep
 %autosetup -p1 -n SOPE
-# For aarch64
-cp -f %{_datadir}/libtool/config/config.{guess,sub} sope-core/NGStreams/
+# For aarch64 (gnu-config, not libtool-base)
+cp -f %{_bindir}/config.guess %{_bindir}/config.sub sope-core/NGStreams/
 # just replace sparc64 with aarch64
 # to fix _libdir path
 sed -i 's!sparc64!aarch64!g' configure
-cp -f %{_datadir}/libtool/config/config.guess sope-core/NGStreams/
 # Not autoconf, even though it looks similar
 # Not actually %_prefix/System -- the bogus configure script translates
 # that to "GNUstep System installation"
